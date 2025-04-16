@@ -2,41 +2,38 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 import os
+import base64
 
-# --- Page Configuration ---
-st.set_page_config(
-    page_title='Camilo Doval Pitching Dashboard',
-    page_icon='⚾',
-    layout='wide'
-)
+# This program sets the Streamlit page title
+st.set_page_config(page_title='Camilo Doval Pitching Dashboard', page_icon='⚾', layout='wide')
 
-# --- Display Logo at Top ---
-#logo_path = 'Next Level Nine Logo.png'
-#if os.path.exists(logo_path):
-    #st.image(logo_path, use_container_width=True)
+# This program imports the project introduction text from doval_charts.py
+from doval_charts import project_intro
 
-# --- Main Title ---
+# This program sets the main title of the dashboard
 st.title('📊 Camilo Doval - Pitching Dashboard')
 
-# --- Author Info ---
-st.markdown('**Created by Liza Osterdock**')
-
-# --- Divider ---
+# This program displays the project overview and summary
+st.markdown(project_intro, unsafe_allow_html=True)
+st.markdown('[🔗 Connect with me on LinkedIn](https://www.linkedin.com/in/lizaosterdock/)')
 st.markdown('---')
 
-# --- Load Data ---
-df = pd.read_csv('camilo_doval_5yr_statcast.csv') 
-df['game_date'] = pd.to_datetime(df['game_date'], errors = 'coerce')
+# This program displays the author's name
+st.markdown('**Created by Liza Osterdock**')
+st.markdown('---')
+
+# This program loads the Statcast dataset and prepares the data
+file_path = 'camilo_doval_5yr_statcast.csv'
+df = pd.read_csv(file_path)
+df['game_date'] = pd.to_datetime(df['game_date'], errors='coerce')
 df['year'] = df['game_date'].dt.year
 
-# --- Metric 1: Velocity & Spin Rate ---
+# This program creates a section for Velocity & Spin Rate
 st.header('Velocity & Spin Rate by Year')
-
 st.markdown('* **Release Speed (MPH)**: The speed at which the ball leaves the pitcher’s hand.')
 st.markdown('* **Spin Rate (RPM)**: How many times the ball spins per minute. A higher spin rate can lead to more movement and deception on pitches.')
 
 velocity_spin = df.groupby('year')[['release_speed', 'release_spin_rate']].mean().round(2)
-
 st.dataframe(velocity_spin)
 
 fig1, ax1 = plt.subplots()
@@ -47,9 +44,8 @@ plt.ylabel('Average')
 plt.grid(True)
 st.pyplot(fig1)
 
-# --- Metric 2: Pitch Usage ---
+# This program creates a section for Pitch Usage Percentages
 st.header('Pitch Usage Percentages by Year')
-
 st.markdown('This shows the percentage of each pitch type Camilo Doval threw per year.')
 st.markdown(' **Pitch Types:**')
 st.markdown('  - **FC**: Cutter')
@@ -71,14 +67,12 @@ plt.legend(title='Pitch Type', bbox_to_anchor=(1.05, 1), loc='upper left')
 plt.tight_layout()
 st.pyplot(fig2)
 
-# --- Metric 3: Release Extension ---
+# This program creates a section for Release Extension
 st.header('Average Release Extension by Year')
-
 st.markdown('* **Release Extension** measures how far in front of the pitching rubber the ball is released (in feet).')
 st.markdown('* A longer extension means the pitcher is releasing the ball closer to the hitter, making pitches appear faster.')
 
 extension_summary = df.groupby('year')['release_extension'].mean().round(2)
-
 st.dataframe(extension_summary)
 
 fig3, ax3 = plt.subplots()
@@ -89,9 +83,8 @@ plt.xlabel('Year')
 plt.grid(True)
 st.pyplot(fig3)
 
-# --- Metric 4: Whiff Rate ---
+# This program creates a section for Whiff Rate
 st.header('Whiff Rate by Year')
-
 st.markdown('* A **whiff** is a swing-and-miss.')
 st.markdown('* **Whiff Rate** = Swinging Strikes ÷ Total Swings.')
 st.markdown('* High whiff rates indicate dominant “stuff” that hitters struggle to make contact with.')
@@ -102,7 +95,6 @@ df['whiff'] = df['description'] == 'swinging_strike'
 
 swing_data = df[df['swinging']]
 whiff_rate = swing_data.groupby('year')['whiff'].mean().round(3)
-
 st.dataframe(whiff_rate)
 
 fig4, ax4 = plt.subplots()
@@ -113,22 +105,18 @@ plt.xlabel('Year')
 plt.grid(True)
 st.pyplot(fig4)
 
-
-# ---Import Image---
-import base64
-
+# This program imports and encodes the logo image for display
 logo_path = 'Next Level Nine Logo.png'
 base64_logo = ''
 if os.path.exists(logo_path):
     with open(logo_path, 'rb') as f:
         base64_logo = base64.b64encode(f.read()).decode()
 
-# --- Footer ---
+# This program creates the footer with branding and logo
 st.markdown('---')
 st.markdown('<center>Designed by Liza Osterdock.</center>', unsafe_allow_html=True)
 st.markdown('<br>', unsafe_allow_html=True)
 st.markdown('<center>© 2025 Next Level Nine. All rights reserved.</center>', unsafe_allow_html=True)
-
 
 if base64_logo:
     image_html = f"<div style='text-align: center;'><img src='data:image/png;base64,{base64_logo}' width='200'/></div>"

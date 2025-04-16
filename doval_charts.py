@@ -2,42 +2,35 @@ import os
 import pandas as pd
 import matplotlib.pyplot as plt
 
-# Make script always run from its own folder
+# This program sets the working directory to the folder containing the script
 script_dir = os.path.dirname(os.path.abspath(__file__))
 os.chdir(script_dir)
 
-# Load dataset from same folder
+# This program loads the Statcast CSV file for Camilo Doval
 df = pd.read_csv("camilo_doval_5yr_statcast.csv")
 
-
-# Make sure the script always runs from its own folder
-os.chdir(os.path.dirname(os.path.abspath(__file__)))
-
-# Load the dataset
-df = pd.read_csv("camilo_doval_5yr_statcast.csv")
-
-# Convert game_date to datetime and extract the year
+# This program converts game_date to datetime and extracts the year
 df['game_date'] = pd.to_datetime(df['game_date'], errors='coerce')
 df['year'] = df['game_date'].dt.year
 
-# Group and average velocity and spin rate
+# This program groups by year and calculates average velocity and spin rate
 velocity_spin = df.groupby('year')[['release_speed', 'release_spin_rate']].mean()
 
-# Pitch usage by count and percent
+# This program calculates pitch type usage counts and percentages by year
 pitch_counts = df.groupby(['year', 'pitch_type']).size().unstack(fill_value=0)
 pitch_percent = pitch_counts.div(pitch_counts.sum(axis=1), axis=0) * 100
 
-# Average release extension per year
+# This program calculates average release extension by year
 extension_summary = df.groupby('year')['release_extension'].mean()
 
-# Whiff rate calculation
+# This program calculates whiff rate by identifying swinging strikes
 df['description'] = df['description'].fillna('')
 df['swinging'] = df['description'].str.contains('swing', case=False)
 df['whiff'] = df['description'] == 'swinging_strike'
 swing_data = df[df['swinging']]
 whiff_rate = swing_data.groupby('year')['whiff'].mean()
 
-# Plot: Velocity and Spin Rate
+# This program plots velocity and spin rate by year
 velocity_spin.plot(marker='o', title="Camilo Doval - Avg Velocity & Spin Rate by Year")
 plt.xlabel("Year")
 plt.ylabel("Average")
@@ -47,7 +40,7 @@ plt.savefig("velocity_spin.png")
 plt.show()
 plt.close()
 
-# Plot: Pitch Usage Percentages
+# This program plots pitch usage percentage by year
 pitch_percent.plot(kind='bar', stacked=True, title="Camilo Doval - Pitch Usage % by Year")
 plt.ylabel("Percentage (%)")
 plt.xlabel("Year")
@@ -57,7 +50,7 @@ plt.savefig("pitch_usage_percent.png")
 plt.show()
 plt.close()
 
-# Plot: Release Extension
+# This program plots average release extension by year
 extension_summary.plot(marker='o', color='green', title="Camilo Doval - Avg Release Extension by Year")
 plt.ylabel("Release Extension (ft)")
 plt.xlabel("Year")
@@ -67,7 +60,7 @@ plt.savefig("release_extension.png")
 plt.show()
 plt.close()
 
-# Plot: Whiff Rate
+# This program plots whiff rate by year
 whiff_rate.plot(marker='o', color='red', title="Camilo Doval - Whiff Rate by Year")
 plt.ylabel("Whiff Rate")
 plt.xlabel("Year")
@@ -77,7 +70,5 @@ plt.savefig("whiff_rate.png")
 plt.show()
 plt.close()
 
-#This should be displayed when done
-print ('We are done. Thank you!')
-
-
+# This program prints a confirmation message when all charts are generated and saved
+print('We are done. Thank you!')
