@@ -7,8 +7,8 @@ import base64
 # This program sets the Streamlit page title
 st.set_page_config(page_title='Camilo Doval Pitching Dashboard', page_icon='⚾', layout='wide')
 
-# This program imports the project introduction text from doval_charts.py
-from doval_charts import project_intro
+# This program imports the project introduction text from doval_intro.py
+from doval_intro import project_intro
 
 # This program sets the main title of the dashboard
 st.title('📊 Camilo Doval - Pitching Dashboard')
