@@ -18,13 +18,12 @@ from doval_intro import (
     section_certifications_contact,
 )
 
-# Load and encode logo for footer
+# Load and encode correct logo
 def load_logo(file_path):
     with open(file_path, "rb") as f:
         return base64.b64encode(f.read()).decode()
 
-# Make sure the image is in the same directory or update path if needed
-base64_logo = load_logo("Pink Baseball.jpeg")
+base64_logo = load_logo("Next Level Nine Logo.png")
 
 # Set Streamlit page configuration
 st.set_page_config(page_title='📊 MLB Pitching Dashboard', page_icon='⚾', layout='wide')
@@ -124,38 +123,22 @@ st.pyplot(fig4)
 # Divider
 st.markdown('---')
 
-# SECTION: Dashboard Insight Summary
+# Remaining HTML sections
 st.markdown(section_dashboard_insights, unsafe_allow_html=True)
-
-# SECTION: SMART Framework
 st.markdown(section_smart_framework, unsafe_allow_html=True)
-
-# SECTION: Development Process
 st.markdown(section_dev_process, unsafe_allow_html=True)
-
-# SECTION: Tech Stack
 st.markdown(section_tech_stack, unsafe_allow_html=True)
-
-# SECTION: MVP Scope
 st.markdown(section_mvp_scope, unsafe_allow_html=True)
-
-# SECTION: Future Enhancements
 st.markdown(section_future_enhancements, unsafe_allow_html=True)
-
-# SECTION: About the Creator
 st.markdown(section_about_creator, unsafe_allow_html=True)
-
-# SECTION: Certifications & Contact Info
 st.markdown(section_certifications_contact, unsafe_allow_html=True)
 
-# Divider
-st.markdown('---')
-
 # Footer
+st.markdown('---')
 st.markdown('<center>Designed by Liza Osterdock.</center>', unsafe_allow_html=True)
-st.markdown('<br>', unsafe_allow_html=True)
 st.markdown('<center>© 2025 Next Level Nine. All rights reserved.</center>', unsafe_allow_html=True)
+st.markdown('<br>', unsafe_allow_html=True)
 
 if base64_logo:
-    image_html = f"<div style='text-align: center;'><img src='data:image/png;base64,{base64_logo}' width='200'/></div>"
+    image_html = f"<div style='text-align: center; margin-top: 10px;'><img src='data:image/png;base64,{base64_logo}' width='200'/></div>"
     st.markdown(image_html, unsafe_allow_html=True)
