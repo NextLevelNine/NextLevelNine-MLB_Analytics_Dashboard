@@ -10,8 +10,23 @@ from doval_intro import project_intro, main_content
 # This program sets the Streamlit page title
 st.set_page_config(page_title='📊 MLB Pitching Dashboard', page_icon='⚾', layout='wide')
 
-# This program displays the dashboard visual title, subheading, and image
+# This program displays the dashboard visual title and subheading
 st.markdown(project_intro, unsafe_allow_html=True)
+
+# Load and embed the pink baseball image using base64 encoding
+pink_img_path = 'Pink Baseball.jpeg'
+pink_base64 = ''
+if os.path.exists(pink_img_path):
+    with open(pink_img_path, 'rb') as img_file:
+        pink_base64 = base64.b64encode(img_file.read()).decode()
+
+if pink_base64:
+    pink_img_html = f"""
+    <div style='text-align: center;'>
+        <img src='data:image/jpeg;base64,{pink_base64}' width='450' style='margin: 10px 0; border-radius: 10px;'/>
+    </div>
+    """
+    st.markdown(pink_img_html, unsafe_allow_html=True)
 
 # This program displays the full dashboard summary and project details
 st.markdown(main_content, unsafe_allow_html=True)
