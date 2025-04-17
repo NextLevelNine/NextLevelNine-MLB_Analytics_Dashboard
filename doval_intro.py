@@ -1,4 +1,5 @@
 # This program defines the project summary and introduction for the Streamlit dashboard
+
 project_intro = """
 <div style='text-align: center;'>
     <h3 style='margin-top: 0;'>MLB Pitching Analysis Dashboard</h3>
@@ -6,17 +7,18 @@ project_intro = """
 </div>
 
 
-<h4>PROJECT PURPOSE</h4>
+<h4>Project Purpose</h4>
 <p>As a bilingual, purpose-driven professional aspiring to transition into a Major League Baseball position, I built this dashboard to merge scouting instincts with modern analytics—through the lens of leadership, player development, and human performance. This project reflects my unique ability to translate data into meaningful, player-focused insight, shaped by over 20 years in business strategy, technology, and mental performance.</p>
 <p>My goal was to design a tool that not only visualizes performance metrics, but also mirrors the decision-making needs of today’s MLB front offices. With a strong foundation in baseball analytics, scouting, and player development, this project demonstrates my ability to communicate insights clearly, build scalable systems, and align data storytelling with long-term athlete growth.</p>
 <p>This dashboard is more than a coding exercise—it’s a practical demonstration of how I think, analyze, and lead through baseball intelligence. My work blends emotional intelligence, analytical rigor, and high-performance leadership, offering a versatile perspective to teams seeking resilient, player-centric environments.</p>
 
-<h4>PROJECT OVERVIEW</h4>
+
+<h4>Project Overview</h4>
 <p>I created this dashboard using Python to evaluate the past five seasons of an MLB pitcher’s performance. For this case study, I selected San Francisco Giants reliever Camilo Doval and pulled Statcast data covering 2020–2025.</p>
 <p>Before scripting, I reviewed Doval’s pitch arsenal, usage trends, and public scouting reports to ensure alignment between raw data and real-world insights. I then used tools like pybaseball, pandas, and matplotlib to extract, clean, and visualize performance patterns.</p>
 <p>The final result is a public-facing, interactive dashboard hosted via Streamlit Cloud—designed to help scouts, analysts, and player development staff interpret pitching trends clearly and efficiently.</p>
 
-<h4>DEVELOPMENT PROCESS</h4>
+<h4>Development Process</h4>
 <ul>
   <li><b>pull_doval_data.py</b>: Used pybaseball to retrieve Statcast pitch-level data (2020–2025). Output: <code>camilo_doval_5yr_statcast.csv</code>.</li>
   <li><b>doval_pitching_analysis.py</b>: Calculated four core metrics:
@@ -33,7 +35,7 @@ project_intro = """
   <li><b>merge_doval_data.py</b>: Merged advanced and Statcast summaries into: <code>doval_complete_profile.csv</code>.</li>
 </ul>
 
-<h4>WHAT THE DASHBOARD DISPLAYS</h4>
+<h4>What the Dashboard Displays</h4>
 <ol>
   <li><b>Velocity & Spin Rate</b><br>
   <b>What it shows:</b> Yearly averages for pitch velocity and spin rate.<br>
@@ -52,7 +54,7 @@ project_intro = """
   <b>Why it matters:</b> A direct measure of dominance. Doval posted elite whiff rates (0.928–0.978) across all seasons, maintaining effectiveness even when velocity slightly dipped.</li>
 </ol>
 
-<h4>S.M.A.R.T. PROJECT FRAMEWORK</h4>
+<h4>Project Framework Using S.M.A.R.T. </h4>
 <ul>
   <li><b>Specific:</b> Analyze Doval’s pitching trends (2020–2025)</li>
   <li><b>Measurable:</b> Four core metrics across five seasons</li>
@@ -61,7 +63,7 @@ project_intro = """
   <li><b>Time-bound:</b> Completed within one week as a capstone MVP</li>
 </ul>
 
-<h4>TECHNICAL STACK</h4>
+<h4>Technical Stack</h4>
 <ul>
   <li><b>Data Sources:</b> Statcast (via PyBaseball), FanGraphs (CSV)</li>
   <li><b>Languages & Libraries:</b> Python, pandas, matplotlib, pybaseball</li>
@@ -69,7 +71,7 @@ project_intro = """
   <li><b>Deployment:</b> GitHub repository + public Streamlit app</li>
 </ul>
 
-<h4>VERSION 1: MVP SCOPE</h4>
+<h4>Version 1: MVP Scope</h4>
 <ul>
   <li>Pulls, cleans, and analyzes 5-year Statcast data</li>
   <li>Visualizes velocity, pitch usage, extension, and whiff rate</li>
@@ -77,7 +79,7 @@ project_intro = """
   <li>Lightweight and scalable for future enhancements</li>
 </ul>
 
-<h4>VERSION 2: FUTURE ENHANCEMENTS</h4>
+<h4>Version 2: Future Enhancements & Implementation</h4>
 <ul>
   <li>Add advanced metrics: WAR, FIP, xFIP, K/9, WPA</li>
   <li>Enable player-to-player comparisons</li>
@@ -86,11 +88,11 @@ project_intro = """
   <li>Optimize for mobile and tablet use</li>
 </ul>
 
-<h4>ABOUT THE CREATOR</h4>
+<h4>About the Creator - Liza Osterdock</h4>
 <p>Hi, I’m <b>Liza Osterdock</b>—a bilingual (English/Spanish), purpose-driven professional pivoting into Major League Baseball after 20+ years in high-tech, data analysis, and business strategy. I specialize in bridging the gap between analytics and athlete development through thoughtful leadership, mental skills coaching, and strategic programming.</p>
 <p>With a “Play Big” mindset, I help players and organizations unlock high-performance environments rooted in emotional intelligence, preparation, and resilience. I’m passionate about blending data and human insight to support long-term growth for both individuals and teams.</p>
 
-<h4>🎓 BASEBALL & ANALYTICS CERTIFICATIONS</h4>
+<h4>🎓 Baseball & Analytics Certifications</h4>
 <ul>
   <li><b>Baseball GM & Scouting</b> – SMWW, Dec. 2024</li>
   <li><b>Baseball Player Development</b> – SMWW, Mar. 2025</li>
@@ -104,13 +106,12 @@ project_intro = """
   <li>Baseball Agent Certification – SMWW</li>
 </ul>
 
-<h4>📬 LET’S CONNECT</h4>
+<h4>📬 Want to know more about me and my Player Development offerings? Let's Connect!</h4>
 <ul>
   <li><b>LinkedIn:</b> <a href="https://www.linkedin.com/in/lizaosterdock/" target="_blank">linkedin.com/in/lizaosterdock</a></li>
   <li><b>Email:</b> liza@allysixconsulting.com</li>
 </ul>
 <p><b>Website:</b> <a href="https://nextlevelnine.com" target="_blank">nextlevelnine.com</a> <i>(Coming Soon)</i></p>
-  
 </ul>
-"""
 
+"""
