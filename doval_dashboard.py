@@ -7,41 +7,25 @@ import base64
 # This program imports the header and main content from the doval_intro file
 from doval_intro import project_intro, main_content
 
-# This program sets the Streamlit page title
+# Set Streamlit page configuration
 st.set_page_config(page_title='📊 MLB Pitching Dashboard', page_icon='⚾', layout='wide')
 
-# This program displays the dashboard visual title and subheading
+# Display the dashboard title section
 st.markdown(project_intro, unsafe_allow_html=True)
 
-# Load and embed the pink baseball image using base64 encoding
-pink_img_path = 'Pink Baseball.jpeg'
-pink_base64 = ''
-if os.path.exists(pink_img_path):
-    with open(pink_img_path, 'rb') as img_file:
-        pink_base64 = base64.b64encode(img_file.read()).decode()
-
-if pink_base64:
-    pink_img_html = f"""
-    <div style='text-align: center;'>
-        <img src='data:image/jpeg;base64,{pink_base64}' width='450' style='margin: 10px 0; border-radius: 10px;'/>
-    </div>
-    """
-    st.markdown(pink_img_html, unsafe_allow_html=True)
-
-# This program displays the full dashboard summary and project details
+# Display main intro content (Project Purpose + Project Overview)
 st.markdown(main_content, unsafe_allow_html=True)
 
-# This program displays the author's name
-st.markdown('**Created by Liza Osterdock**')
+# Divider line
 st.markdown('---')
 
-# This program loads the Statcast dataset and prepares the data
+# Load the Statcast dataset
 file_path = 'camilo_doval_5yr_statcast.csv'
 df = pd.read_csv(file_path)
 df['game_date'] = pd.to_datetime(df['game_date'], errors='coerce')
 df['year'] = df['game_date'].dt.year
 
-# This program creates a section for Velocity & Spin Rate
+# ===== VELOCITY & SPIN RATE =====
 st.header('Velocity & Spin Rate by Year')
 st.markdown('* **Release Speed (MPH)**: The speed at which the ball leaves the pitcher’s hand.')
 st.markdown('* **Spin Rate (RPM)**: How many times the ball spins per minute. A higher spin rate can lead to more movement and deception on pitches.')
@@ -57,18 +41,13 @@ plt.ylabel('Average')
 plt.grid(True)
 st.pyplot(fig1)
 
-# This program creates a section for Pitch Usage Percentages
+# ===== PITCH USAGE =====
 st.header('Pitch Usage Percentages by Year')
-st.markdown('This shows the percentage of each pitch type Camilo Doval threw per year.')
-st.markdown(' **Pitch Types:**')
-st.markdown('  - **FC**: Cutter')
-st.markdown('  - **FF**: Four-Seam Fastball')
-st.markdown('  - **SI**: Sinker')
-st.markdown('  - **SL**: Slider')
+st.markdown('* This shows the percentage of each pitch type Camilo Doval threw per year.')
+st.markdown('**Pitch Types:** FC (Cutter), FF (Four-Seam), SI (Sinker), SL (Slider)')
 
 pitch_counts = df.groupby(['year', 'pitch_type']).size().unstack(fill_value=0)
 pitch_percent = pitch_counts.div(pitch_counts.sum(axis=1), axis=0).round(3) * 100
-
 st.dataframe(pitch_percent)
 
 fig2, ax2 = plt.subplots()
@@ -80,7 +59,7 @@ plt.legend(title='Pitch Type', bbox_to_anchor=(1.05, 1), loc='upper left')
 plt.tight_layout()
 st.pyplot(fig2)
 
-# This program creates a section for Release Extension
+# ===== RELEASE EXTENSION =====
 st.header('Average Release Extension by Year')
 st.markdown('* **Release Extension** measures how far in front of the pitching rubber the ball is released (in feet).')
 st.markdown('* A longer extension means the pitcher is releasing the ball closer to the hitter, making pitches appear faster.')
@@ -96,11 +75,10 @@ plt.xlabel('Year')
 plt.grid(True)
 st.pyplot(fig3)
 
-# This program creates a section for Whiff Rate
+# ===== WHIFF RATE =====
 st.header('Whiff Rate by Year')
 st.markdown('* A **whiff** is a swing-and-miss.')
 st.markdown('* **Whiff Rate** = Swinging Strikes ÷ Total Swings.')
-st.markdown('* High whiff rates indicate dominant “stuff” that hitters struggle to make contact with.')
 
 df['description'] = df['description'].fillna('')
 df['swinging'] = df['description'].str.contains('swing', case=False)
@@ -118,20 +96,11 @@ plt.xlabel('Year')
 plt.grid(True)
 st.pyplot(fig4)
 
-# This program imports and encodes the logo image for display
-logo_path = 'Next Level Nine Logo.png'
-base64_logo = ''
-if os.path.exists(logo_path):
-    with open(logo_path, 'rb') as f:
-        base64_logo = base64.b64encode(f.read()).decode()
-
-# This program creates the footer with branding and logo
+# ===== CONTINUED PROJECT CONTENT =====
 st.markdown('---')
-st.markdown('<center>Designed by Liza Osterdock.</center>', unsafe_allow_html=True)
-st.markdown('<br>', unsafe_allow_html=True)
-st.markdown('<center>© 2025 Next Level Nine. All rights reserved.</center>', unsafe_allow_html=True)
+st.markdown('### More Project Details')
+st.markdown(main_content, unsafe_allow_html=True)
 
-
-if base64_logo:
-    image_html = f"<div style='text-align: center;'><img src='data:image/png;base64,{base64_logo}' width='200'/></div>"
-    st.markdown(image_html, unsafe_allow_html=True)
+# Optional footer
+st.markdown('**Created by Liza Osterdock**')
+st.markdown('---')
