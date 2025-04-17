@@ -1,9 +1,6 @@
 project_intro = """
 <div style='text-align: center;'>
     <h3 style='margin-top: 0;'>MLB Pitching Analysis Dashboard</h3>
-
-    <img src='https://raw.githubusercontent.com/NextLevelNine/NextLevelNine-MLB_Analytics_Dashboard/main/Pink%20Baseball.jpeg' alt='Pink Baseball' width='450' style='margin: 10px 0;'>
-
     <p style='font-style: italic; margin-bottom: 0;'>Scouting & Player Development Insights Through a Woman’s Lens</p>
 </div>
 """
