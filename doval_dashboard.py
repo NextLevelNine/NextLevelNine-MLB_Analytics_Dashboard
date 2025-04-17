@@ -4,31 +4,36 @@ import matplotlib.pyplot as plt
 import os
 import base64
 
-# This program imports the header and main content from the doval_intro file
+# Import header and HTML content
 from doval_intro import project_intro, main_content
 
 # Set Streamlit page configuration
 st.set_page_config(page_title='📊 MLB Pitching Dashboard', page_icon='⚾', layout='wide')
 
-# Display the dashboard title section
+# Show visual header and image
 st.markdown(project_intro, unsafe_allow_html=True)
 
-# Display main intro content (Project Purpose + Project Overview)
-st.markdown(main_content, unsafe_allow_html=True)
-
-# Divider line
+# Divider
 st.markdown('---')
 
-# Load the Statcast dataset
+# SECTION: Project Purpose and Overview (comes before charts)
+st.markdown(main_content, unsafe_allow_html=True)
+
+# Divider
+st.markdown('---')
+
+# Load dataset
 file_path = 'camilo_doval_5yr_statcast.csv'
 df = pd.read_csv(file_path)
 df['game_date'] = pd.to_datetime(df['game_date'], errors='coerce')
 df['year'] = df['game_date'].dt.year
 
-# ===== VELOCITY & SPIN RATE =====
+# -----------------------------
+# SECTION: Velocity & Spin Rate
+# -----------------------------
 st.header('Velocity & Spin Rate by Year')
 st.markdown('* **Release Speed (MPH)**: The speed at which the ball leaves the pitcher’s hand.')
-st.markdown('* **Spin Rate (RPM)**: How many times the ball spins per minute. A higher spin rate can lead to more movement and deception on pitches.')
+st.markdown('* **Spin Rate (RPM)**: How many times the ball spins per minute. Higher values often lead to more movement.')
 
 velocity_spin = df.groupby('year')[['release_speed', 'release_spin_rate']].mean().round(2)
 st.dataframe(velocity_spin)
@@ -41,10 +46,12 @@ plt.ylabel('Average')
 plt.grid(True)
 st.pyplot(fig1)
 
-# ===== PITCH USAGE =====
+# -----------------------------
+# SECTION: Pitch Usage Percentages
+# -----------------------------
 st.header('Pitch Usage Percentages by Year')
-st.markdown('* This shows the percentage of each pitch type Camilo Doval threw per year.')
-st.markdown('**Pitch Types:** FC (Cutter), FF (Four-Seam), SI (Sinker), SL (Slider)')
+st.markdown('* Shows the percentage mix of pitches used each year.')
+st.markdown('Pitch Types: SL (Slider), FC (Cutter), FF (4-Seamer), SI (Sinker)')
 
 pitch_counts = df.groupby(['year', 'pitch_type']).size().unstack(fill_value=0)
 pitch_percent = pitch_counts.div(pitch_counts.sum(axis=1), axis=0).round(3) * 100
@@ -59,10 +66,11 @@ plt.legend(title='Pitch Type', bbox_to_anchor=(1.05, 1), loc='upper left')
 plt.tight_layout()
 st.pyplot(fig2)
 
-# ===== RELEASE EXTENSION =====
+# -----------------------------
+# SECTION: Release Extension
+# -----------------------------
 st.header('Average Release Extension by Year')
-st.markdown('* **Release Extension** measures how far in front of the pitching rubber the ball is released (in feet).')
-st.markdown('* A longer extension means the pitcher is releasing the ball closer to the hitter, making pitches appear faster.')
+st.markdown('* Measures how far off the mound the ball is released. Greater extension can reduce perceived reaction time for hitters.')
 
 extension_summary = df.groupby('year')['release_extension'].mean().round(2)
 st.dataframe(extension_summary)
@@ -75,10 +83,12 @@ plt.xlabel('Year')
 plt.grid(True)
 st.pyplot(fig3)
 
-# ===== WHIFF RATE =====
+# -----------------------------
+# SECTION: Whiff Rate
+# -----------------------------
 st.header('Whiff Rate by Year')
 st.markdown('* A **whiff** is a swing-and-miss.')
-st.markdown('* **Whiff Rate** = Swinging Strikes ÷ Total Swings.')
+st.markdown('* **Whiff Rate = Swinging Strikes ÷ Total Swings**')
 
 df['description'] = df['description'].fillna('')
 df['swinging'] = df['description'].str.contains('swing', case=False)
@@ -96,11 +106,12 @@ plt.xlabel('Year')
 plt.grid(True)
 st.pyplot(fig4)
 
-# ===== CONTINUED PROJECT CONTENT =====
+# Divider
 st.markdown('---')
-st.markdown('### More Project Details')
+
+# SECTION: Remaining HTML (SMART, Tech Stack, Versions, Bio, etc.)
 st.markdown(main_content, unsafe_allow_html=True)
 
-# Optional footer
-st.markdown('**Created by Liza Osterdock**')
+# Final footer
 st.markdown('---')
+st.markdown('**Created by Liza Osterdock**')
