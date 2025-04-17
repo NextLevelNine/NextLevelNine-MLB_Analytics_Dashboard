@@ -3,8 +3,8 @@
 # Header section (visual title)
 project_intro = """
 <div style='text-align: center;'>
-    <p style='font-style: italic; margin-bottom: 0;'>MLB Pitching Analysis Dashboard</p>
-    <h3 style='margin-top: 0;'>Scouting & Player Development Insights Through a Woman’s Lens</h3>
+    <h3 style='margin-top: 0;'>MLB Pitching Analysis Dashboard</h3>
+    <p style='font-style: italic; margin-bottom: 0;'>Scouting & Player Development Insights Through a Woman’s Lens</p>
 </div>
 """
 
