@@ -1,123 +1,95 @@
-import streamlit as st
-import pandas as pd
-import matplotlib.pyplot as plt
-import os
-import base64
+# This program defines the project summary and introduction for the Streamlit dashboard
 
-# This program imports the full html code for the project introduction used for the dashboard header
-from doval_intro import project_intro
+project_intro = """
+<h3>MLB Pitching Dashboard</h3>
 
-# This program sets the Streamlit page title
-st.set_page_config(page_title='Camilo Doval Pitching Dashboard', page_icon='⚾', layout='wide')
+<p>I decided to create a dashboard using Python programming that would analyze an MLB pitcher's last five years of performance and display interactive graphs and data summaries based on the report. For this sample, I am using San Francisco Giants reliever <b>Camilo Doval</b> as the subject of analysis.</p>
 
-# This program sets the main title of the dashboard
-st.title('📊 Camilo Doval - Pitching Dashboard')
+<h4>🚀 Project Purpose</h4>
+<p>As an aspiring <b>MLB Player Development</b> and <b>R&D Analyst</b>, I built this interactive dashboard to demonstrate the kind of professionalism, insight, and data fluency today’s front offices expect. My work reflects a blend of <b>baseball wisdom</b>, <b>analytical rigor</b>, and <b>emotional intelligence</b>—three qualities I’ve cultivated through advanced certifications and real-world application.</p>
 
-# This program displays the project overview and summary
-st.markdown(project_intro, unsafe_allow_html=True)
+<p>I’ve earned four industry-recognized credentials:</p>
+<ul>
+  <li><b>Baseball GM & Scouting</b> – SMWW, Dec. 2024</li>
+  <li><b>Baseball Player Development</b> – SMWW, Mar. 2025</li>
+  <li><b>Baseball Analytics</b> – SMWW, Mar. 2025</li>
+  <li><b>Analytics & Critical Thinking in Baseball (Level I)</b> – SABR, Apr. 2025</li>
+</ul>
 
+<p>I’ve developed a strategic understanding of player evaluation, high-performance culture, and statistical analysis. Beyond the technical training, I bring a curious mindset, a leader’s communication style, and the ability to connect scouting instincts with data-driven decisions. This project is more than a dashboard—it’s a showcase of how I think, lead, and build systems that translate complex performance data into clear, actionable baseball intelligence. Designed with front-office needs in mind, it reflects my commitment to helping players succeed and organizations thrive.</p>
 
-# This program displays the author's name
-st.markdown('**Created by Liza Osterdock**')
-st.markdown('---')
+<h4>📋 How the Dashboard Was Built</h4>
+<p>I began by creating a script called <code>pull_doval_data.py</code> using the <code>pybaseball</code> library to pull Camilo Doval’s Statcast data from 2020 to 2025. This generated a raw CSV file <code>camilo_doval_5yr_statcast.csv</code>.</p>
+<p>I then created <code>doval_pitching_analysis.py</code> to analyze the data and calculate key metrics like yearly averages for velocity and spin rate, pitch usage, release extension, and whiff rate. These were exported into individual CSV summaries.</p>
+<p>Using <code>doval_charts.py</code>, I generated clean, well-labeled <code>.png</code> visualizations for each metric.</p>
+<p><code>pull_doval_advanced.py</code> was created to explore integration with FanGraphs for advanced stats (WAR, K/9, FIP, etc.), generating a placeholder file <code>doval_advanced_stats.csv</code>.</p>
+<p>Finally, <code>merge_doval_data.py</code> brought both datasets together into a unified <code>doval_complete_profile.csv</code> that can serve as a foundation for future dashboards and comparative studies.</p>
 
-# This program loads the Statcast dataset and prepares the data
-file_path = 'camilo_doval_5yr_statcast.csv'
-df = pd.read_csv(file_path)
-df['game_date'] = pd.to_datetime(df['game_date'], errors='coerce')
-df['year'] = df['game_date'].dt.year
+<h4>📊 What the Dashboard Displays</h4>
+<p>The app presents <b>4 key pitching metrics</b> for Camilo Doval (2021–2025):</p>
 
-# This program creates a section for Velocity & Spin Rate
-st.header('Velocity & Spin Rate by Year')
-st.markdown('* **Release Speed (MPH)**: The speed at which the ball leaves the pitcher’s hand.')
-st.markdown('* **Spin Rate (RPM)**: How many times the ball spins per minute. A higher spin rate can lead to more movement and deception on pitches.')
+<p><b>1. Velocity & Spin Rate</b><br>
+<b>What it shows:</b> Yearly averages of pitch velocity and spin rate.<br>
+<b>Why it matters:</b> Measures raw power and pitch movement effectiveness.</p>
 
-velocity_spin = df.groupby('year')[['release_speed', 'release_spin_rate']].mean().round(2)
-st.dataframe(velocity_spin)
+<p><b>2. Pitch Usage Percentages</b><br>
+<b>What it shows:</b> How often each pitch type is thrown each year (FC, FF, SI, SL).<br>
+<b>Why it matters:</b> Reflects pitch selection strategies and player evolution.</p>
 
-fig1, ax1 = plt.subplots()
-velocity_spin.plot(marker='o', ax=ax1)
-plt.title('Velocity & Spin Rate by Year')
-plt.xlabel('Year')
-plt.ylabel('Average')
-plt.grid(True)
-st.pyplot(fig1)
+<p><b>3. Release Extension</b><br>
+<b>What it shows:</b> How far in front of the rubber the ball is released.<br>
+<b>Why it matters:</b> Impacts perceived velocity and deception.</p>
 
-# This program creates a section for Pitch Usage Percentages
-st.header('Pitch Usage Percentages by Year')
-st.markdown('This shows the percentage of each pitch type Camilo Doval threw per year.')
-st.markdown(' **Pitch Types:**')
-st.markdown('  - **FC**: Cutter')
-st.markdown('  - **FF**: Four-Seam Fastball')
-st.markdown('  - **SI**: Sinker')
-st.markdown('  - **SL**: Slider')
+<p><b>4. Whiff Rate</b><br>
+<b>What it shows:</b> Swing-and-miss rate.<br>
+<b>Why it matters:</b> Reflects dominance and ability to miss bats.</p>
 
-pitch_counts = df.groupby(['year', 'pitch_type']).size().unstack(fill_value=0)
-pitch_percent = pitch_counts.div(pitch_counts.sum(axis=1), axis=0).round(3) * 100
+<h4>📄 Project Overview</h4>
+<p>This dashboard was created to answer the following question:</p>
+<blockquote><i>How can we make advanced metrics more accessible for analysts, coaches, and fans—without losing depth or meaning?</i></blockquote>
 
-st.dataframe(pitch_percent)
+<p><b>S.M.A.R.T. Project Framework</b></p>
+<ul>
+  <li><b>Specific:</b> Analyze Doval’s 5-year performance using Statcast data.</li>
+  <li><b>Measurable:</b> 4 metrics with year-over-year trend lines.</li>
+  <li><b>Achievable:</b> Python + PyBaseball + Streamlit Cloud.</li>
+  <li><b>Relevant:</b> Metrics align with real-world player development goals.</li>
+  <li><b>Time-bound:</b> Completed over 3 focused days from prototype to deployment.</li>
+</ul>
 
-fig2, ax2 = plt.subplots()
-pitch_percent.plot(kind='bar', stacked=True, ax=ax2)
-plt.title('Pitch Usage Percentages by Year')
-plt.ylabel('Percentage (%)')
-plt.xlabel('Year')
-plt.legend(title='Pitch Type', bbox_to_anchor=(1.05, 1), loc='upper left')
-plt.tight_layout()
-st.pyplot(fig2)
+<h4>📈 Technical Stack</h4>
+<ul>
+  <li><b>Data:</b> Statcast via PyBaseball, FanGraphs (CSV)</li>
+  <li><b>Processing:</b> Python (Pandas, Matplotlib)</li>
+  <li><b>Frontend:</b> Streamlit</li>
+  <li><b>Hosting:</b> Streamlit Community Cloud (Free)</li>
+</ul>
 
-# This program creates a section for Release Extension
-st.header('Average Release Extension by Year')
-st.markdown('* **Release Extension** measures how far in front of the pitching rubber the ball is released (in feet).')
-st.markdown('* A longer extension means the pitcher is releasing the ball closer to the hitter, making pitches appear faster.')
+<h4>🎓 Certifications & Courses</h4>
+<p>I’ve completed four elite baseball certifications in the past year:</p>
+<ul>
+  <li><b>Baseball GM & Scouting</b> – SMWW, Dec. 2024</li>
+  <li><b>Baseball Player Development</b> – SMWW, Mar. 2025</li>
+  <li><b>Baseball Analytics</b> – SMWW, Mar. 2025</li>
+  <li><b>Analytics & Critical Thinking in Baseball (Level I)</b> – SABR, Apr. 2025</li>
+</ul>
+<p><b>Currently enrolled in:</b></p>
+<ul>
+  <li><b>Advanced Analytics in Baseball (Level II)</b> – SABR, May 2025</li>
+  <li><b>Python Programming</b> – Stanford University Continuing Education, Spring 2025</li>
+  <li><b>Baseball Agent Certification</b> – SMWW, June 2025</li>
+</ul>
 
-extension_summary = df.groupby('year')['release_extension'].mean().round(2)
-st.dataframe(extension_summary)
+<h4> Future Enhancements</h4>
+<ul>
+  <li>Pitcher-to-pitcher comparisons</li>
+  <li>Team-level analysis and filters</li>
+  <li>Mobile view optimization</li>
+  <li>WAR, FIP, K/9, xFIP, WPA metrics integration</li>
+  <li>Interactive timeline and dropdown filters</li>
+</ul>
 
-fig3, ax3 = plt.subplots()
-extension_summary.plot(marker='o', color='green', ax=ax3)
-plt.title('Release Extension by Year')
-plt.ylabel('Feet')
-plt.xlabel('Year')
-plt.grid(True)
-st.pyplot(fig3)
-
-# This program creates a section for Whiff Rate
-st.header('Whiff Rate by Year')
-st.markdown('* A **whiff** is a swing-and-miss.')
-st.markdown('* **Whiff Rate** = Swinging Strikes ÷ Total Swings.')
-st.markdown('* High whiff rates indicate dominant “stuff” that hitters struggle to make contact with.')
-
-df['description'] = df['description'].fillna('')
-df['swinging'] = df['description'].str.contains('swing', case=False)
-df['whiff'] = df['description'] == 'swinging_strike'
-
-swing_data = df[df['swinging']]
-whiff_rate = swing_data.groupby('year')['whiff'].mean().round(3)
-st.dataframe(whiff_rate)
-
-fig4, ax4 = plt.subplots()
-whiff_rate.plot(marker='o', color='red', ax=ax4)
-plt.title('Whiff Rate by Year')
-plt.ylabel('Whiff Rate')
-plt.xlabel('Year')
-plt.grid(True)
-st.pyplot(fig4)
-
-# This program imports and encodes the logo image for display
-logo_path = 'Next Level Nine Logo.png'
-base64_logo = ''
-if os.path.exists(logo_path):
-    with open(logo_path, 'rb') as f:
-        base64_logo = base64.b64encode(f.read()).decode()
-
-# This program creates the footer with branding and logo
-st.markdown('---')
-st.markdown('<center>Designed by Liza Osterdock.</center>', unsafe_allow_html=True)
-st.markdown('<br>', unsafe_allow_html=True)
-st.markdown('<center>© 2025 Next Level Nine. All rights reserved.</center>', unsafe_allow_html=True)
-
-
-if base64_logo:
-    image_html = f"<div style='text-align: center;'><img src='data:image/png;base64,{base64_logo}' width='200'/></div>"
-    st.markdown(image_html, unsafe_allow_html=True)
+<h4>📨 Contact</h4>
+<p><a href="https://www.linkedin.com/in/lizaosterdock/" target="_blank">Connect with me on LinkedIn</a><br>
+Email: liza@allysixconsulting.com</p>
+"""
