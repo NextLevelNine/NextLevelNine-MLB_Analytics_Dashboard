@@ -26,23 +26,23 @@ project_intro = """
 <p>Finally, <code>merge_doval_data.py</code> brought both datasets together into a unified <code>doval_complete_profile.csv</code> that can serve as a foundation for future dashboards and comparative studies.</p>
 
 <h4>📊 What the Dashboard Displays</h4>
-<p>The app presents <b>4 key pitching metrics</b> for Camilo Doval (2021–2025):</p>
+<p>The app presents <b>4 key pitching metrics</b> for Camilo Doval (2021–2025), each supported by a table and visual chart:</p>
 
 <p><b>1. Velocity & Spin Rate</b><br>
 <b>What it shows:</b> Yearly averages of pitch velocity and spin rate.<br>
-<b>Why it matters:</b> Measures raw power and pitch movement effectiveness.</p>
+<b>Why it matters:</b> Foundational indicators of a pitcher’s raw power and pitch movement quality. In Doval’s case, velocity peaked in 2023 (95.26 mph), with a minor dip in 2024–2025. Spin rate stayed elite, rebounding in 2025 to the highest value (2555.13 rpm), reflecting his continued ability to generate late movement and deception.</p>
 
 <p><b>2. Pitch Usage Percentages</b><br>
-<b>What it shows:</b> How often each pitch type is thrown each year (FC, FF, SI, SL).<br>
-<b>Why it matters:</b> Reflects pitch selection strategies and player evolution.</p>
+<b>What it shows:</b> Year-over-year breakdown of pitch types (FC, FF, SI, SL).<br>
+<b>Why it matters:</b> Provides insight into pitch selection strategy and adaptation. Doval’s slider (SL) has remained dominant, especially in 2024–2025 (over 50% usage), while sinker (SI) usage declined. His cutter (FC) remained steady, reflecting consistency in high-leverage sequences.</p>
 
 <p><b>3. Release Extension</b><br>
-<b>What it shows:</b> How far in front of the rubber the ball is released.<br>
-<b>Why it matters:</b> Impacts perceived velocity and deception.</p>
+<b>What it shows:</b> Average release distance from the mound.<br>
+<b>Why it matters:</b> Longer release extension creates perceived velocity and improves deception. Doval’s release extension stayed consistent (6.3–6.6 ft), with a slight dip in 2024 and recovery in 2025—indicating steady mechanics with minor variance.</p>
 
 <p><b>4. Whiff Rate</b><br>
-<b>What it shows:</b> Swing-and-miss rate.<br>
-<b>Why it matters:</b> Reflects dominance and ability to miss bats.</p>
+<b>What it shows:</b> Percentage of swings that result in misses.<br>
+<b>Why it matters:</b> A direct measure of “stuff” quality and strikeout ability. Doval has posted exceptional whiff rates across all five seasons (0.928–0.978), peaking in 2023 and maintaining elite dominance. This showcases his effectiveness even during slight dips in velocity.</p>
 
 <h4>📄 Project Overview</h4>
 <p>This dashboard was created to answer the following question:</p>
@@ -64,6 +64,7 @@ project_intro = """
   <li><b>Frontend:</b> Streamlit</li>
   <li><b>Hosting:</b> Streamlit Community Cloud (Free)</li>
 </ul>
+<p><b>💎 Live App:</b> <a href="https://nextlevelnine-mlbanalyticsdashboard-camilo-doval.streamlit.app/" target="_blank">Visit Dashboard</a></p>
 
 <h4>🎓 Certifications & Courses</h4>
 <p>I’ve completed four elite baseball certifications in the past year:</p>
