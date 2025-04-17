@@ -16,6 +16,13 @@ st.markdown(project_intro, unsafe_allow_html=True)
 # This program displays the full dashboard summary and project details
 st.markdown(main_content, unsafe_allow_html=True)
 
+st.markdown(project_intro, unsafe_allow_html=True)
+
+# Display image
+st.markdown(
+    "<div style='text-align: center;'><img src='https://raw.githubusercontent.com/NextLevelNine/NextLevelNine-MLB_Analytics_Dashboard/main/Pink%20Baseball.jpeg' width='450'></div>",
+    unsafe_allow_html=True
+)
 
 # This program sets the Streamlit page title
 #st.set_page_config(page_title='MLB Pitching Dashboard', page_icon='⚾', layout='wide')
