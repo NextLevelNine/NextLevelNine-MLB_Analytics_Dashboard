@@ -106,12 +106,6 @@ plt.xlabel('Year')
 plt.grid(True)
 st.pyplot(fig4)
 
-# Divider
-st.markdown('---')
-
-# SECTION: Remaining HTML (SMART, Tech Stack, Versions, Bio, etc.)
-st.markdown(main_content, unsafe_allow_html=True)
-
-# Final footer
+# Divider and Footer
 st.markdown('---')
 st.markdown('**Created by Liza Osterdock**')
