@@ -95,4 +95,4 @@ Currently enrolled in:
 ## 📬 Contact
 
 🔗 [Connect with me on LinkedIn](https://www.linkedin.com/in/lizaosterdock/)  
-📧 Email: [Coming soon]
+📧 Email: liza@allysixconsulting.com
