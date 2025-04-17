@@ -33,6 +33,7 @@ file_path = 'camilo_doval_5yr_statcast.csv'
 df = pd.read_csv(file_path)
 df['game_date'] = pd.to_datetime(df['game_date'], errors='coerce')
 df['year'] = df['game_date'].dt.year
+
 # -----------------------------
 # SECTION: Velocity & Spin Rate
 # -----------------------------
@@ -43,7 +44,7 @@ st.markdown('* **Spin Rate (RPM)**: How many times the ball spins per minute. Hi
 velocity_spin = df.groupby('year')[['release_speed', 'release_spin_rate']].mean().round(2)
 st.dataframe(velocity_spin)
 
-fig1, ax1 = plt.subplots(figsize=(6, 4))
+fig1, ax1 = plt.subplots(figsize=(6, 3))
 velocity_spin.plot(marker='o', ax=ax1)
 plt.title('Velocity & Spin Rate by Year')
 plt.xlabel('Year')
@@ -62,7 +63,7 @@ pitch_counts = df.groupby(['year', 'pitch_type']).size().unstack(fill_value=0)
 pitch_percent = pitch_counts.div(pitch_counts.sum(axis=1), axis=0).round(3) * 100
 st.dataframe(pitch_percent)
 
-fig2, ax2 = plt.subplots(figsize=(6, 4))
+fig2, ax2 = plt.subplots(figsize=(6, 3))
 pitch_percent.plot(kind='bar', stacked=True, ax=ax2)
 plt.title('Pitch Usage Percentages by Year')
 plt.ylabel('Percentage (%)')
@@ -80,7 +81,7 @@ st.markdown('* Measures how far off the mound the ball is released. Greater exte
 extension_summary = df.groupby('year')['release_extension'].mean().round(2)
 st.dataframe(extension_summary)
 
-fig3, ax3 = plt.subplots(figsize=(6, 4))
+fig3, ax3 = plt.subplots(figsize=(6, 3))
 extension_summary.plot(marker='o', color='green', ax=ax3)
 plt.title('Release Extension by Year')
 plt.ylabel('Feet')
@@ -103,7 +104,7 @@ swing_data = df[df['swinging']]
 whiff_rate = swing_data.groupby('year')['whiff'].mean().round(3)
 st.dataframe(whiff_rate)
 
-fig4, ax4 = plt.subplots(figsize=(6, 4))
+fig4, ax4 = plt.subplots(figsize=(6, 3))
 whiff_rate.plot(marker='o', color='red', ax=ax4)
 plt.title('Whiff Rate by Year')
 plt.ylabel('Whiff Rate')
