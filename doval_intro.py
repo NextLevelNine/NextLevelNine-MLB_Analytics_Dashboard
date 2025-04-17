@@ -1,8 +1,8 @@
 # This program defines the project summary and introduction for the Streamlit dashboard
 project_intro = """
 <div style='text-align: center;'>
+       <h3 style='margin-top: 0;'>Scouting & Player Development Insights Through a Woman’s Lens</h3>
     <p style='font-style: italic; margin-bottom: 0;'>MLB Pitching Analysis Dashboard</p>
-    <h3 style='margin-top: 0;'>Scouting & Player Development Insights Through a Woman’s Lens</h3>
 </div>
 
 <h4>PROJECT PURPOSE</h4>
