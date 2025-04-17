@@ -12,7 +12,6 @@ project_intro = """
 <p>My goal was to design a tool that not only visualizes performance metrics, but also mirrors the decision-making needs of today’s MLB front offices. With a strong foundation in baseball analytics, scouting, and player development, this project demonstrates my ability to communicate insights clearly, build scalable systems, and align data storytelling with long-term athlete growth.</p>
 <p>This dashboard is more than a coding exercise—it’s a practical demonstration of how I think, analyze, and lead through baseball intelligence. My work blends emotional intelligence, analytical rigor, and high-performance leadership, offering a versatile perspective to teams seeking resilient, player-centric environments.</p>
 
-
 <h4>Project Overview</h4>
 <p>I created this dashboard using Python to evaluate the past five seasons of an MLB pitcher’s performance. For this case study, I selected San Francisco Giants reliever Camilo Doval and pulled Statcast data covering 2020–2025.</p>
 <p>Before scripting, I reviewed Doval’s pitch arsenal, usage trends, and public scouting reports to ensure alignment between raw data and real-world insights. I then used tools like pybaseball, pandas, and matplotlib to extract, clean, and visualize performance patterns.</p>
@@ -115,3 +114,4 @@ project_intro = """
 </ul>
 
 """
+
