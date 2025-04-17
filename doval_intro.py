@@ -7,6 +7,7 @@ project_intro = """
     <h3 style='margin-top: 0;'>Scouting & Player Development Insights Through a Woman’s Lens</h3>
 </div>
 """
+
 # Main body content of the page
 main_content = """
 <h4>Project Purpose</h4>
@@ -55,7 +56,7 @@ main_content = """
   <b>Why it matters:</b> A direct measure of dominance. Doval posted elite whiff rates (0.928–0.978) across all seasons, maintaining effectiveness even when velocity slightly dipped.</li>
 </ol>
 
-<h4>Project Framework Using S.M.A.R.T. </h4>
+<h4>Project Framework Using S.M.A.R.T.</h4>
 <ul>
   <li><b>Specific:</b> Analyze Doval’s pitching trends (2020–2025)</li>
   <li><b>Measurable:</b> Four core metrics across five seasons</li>
@@ -113,7 +114,4 @@ main_content = """
   <li><b>Email:</b> liza@allysixconsulting.com</li>
 </ul>
 <p><b>Website:</b> <a href="https://nextlevelnine.com" target="_blank">nextlevelnine.com</a> <i>(Coming Soon)</i></p>
-</ul>
-
 """
-
