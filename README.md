@@ -1,98 +1,119 @@
-# Camilo Doval - MLB Pitching Dashboard
+# MLB Pitching Analysis Dashboard  
+**Scouting & Player Development Insights Through a Woman’s Lens**
 
-Welcome to the **Camilo Doval Pitching Dashboard**, a fully interactive analytics project designed to visualize the five-year performance of one of MLB’s top high-leverage relievers using Python, real Statcast data, and Streamlit.
+## 🚀 Project Purpose  
+As a bilingual, purpose-driven professional transitioning into Major League Baseball, I built this dashboard to merge scouting instincts with modern analytics—through the lens of leadership, player development, and human performance.
 
-## 🚀 Project Purpose
-As an aspiring **MLB Player Development** or **R&D Analyst**, I built this dashboard to showcase my ability to combine player development insights, data storytelling, and baseball analytics. This project reflects my commitment to developing the skills front offices value—blending **analytical thinking**, **baseball intelligence**, and **human development**.
-
-The goal of this dashboard is to:
-- Demonstrate player development trends
-- Communicate advanced baseball metrics visually
-- Scale easily for future player comparisons or team-level analysis
+This project demonstrates my ability to design tools that not only visualize performance metrics but also mirror the decision-making needs of MLB front offices. With a foundation in baseball analytics, scouting, and player development, I aimed to deliver clean data storytelling and actionable insights aligned with long-term athlete growth.
 
 ---
 
-## 👩🏻‍💻 About the Creator
+## 📄 Project Overview  
+This dashboard evaluates the past five seasons of San Francisco Giants reliever **Camilo Doval** using real Statcast data (2020–2025). Before coding, I reviewed his pitch arsenal, usage trends, and scouting reports to align the analysis with real-world context.
 
-Hi, I’m **Liza Osterdock**, a bilingual (English/Spanish), purpose-driven professional transitioning into MLB after 20+ years in high-tech, data analysis, and e-commerce. My background in **leadership**, **software engineering**, **program design**, and **business strategy** allows me to bridge the gap between **analytics** and **the human side of the game**.
+The final product is a public-facing, interactive Streamlit app that helps coaches, scouts, and player development teams track performance trends and metrics.
 
-I’m deeply committed to building resilient, development-first, player-centric environments rooted in the “**Play Big**” mentality—anchored in mental performance, leadership, and high standards.
+---
+
+## 🛠️ Development Process
+
+- `pull_doval_data.py`: Pulled Statcast pitch-level data (2020–2025) via PyBaseball.
+- `doval_pitching_analysis.py`: Aggregated 4 key metrics:
+  - Velocity & Spin Rate
+  - Pitch Usage
+  - Release Extension
+  - Whiff Rate  
+- `doval_charts.py`: Created PNG visualizations using matplotlib.
+- `pull_doval_advanced.py`: Added placeholder for advanced stats (WAR, FIP, K/9).
+- `merge_doval_data.py`: Combined Statcast and FanGraphs data into `doval_complete_profile.csv`.
 
 ---
 
 ## 📊 What the Dashboard Displays
 
-The app presents **4 key pitching metrics** for Camilo Doval (2021–2025):
+**1. Velocity & Spin Rate**  
+**What it shows:** Yearly averages for pitch velocity and spin rate.  
+**Why it matters:** Measures raw arm strength and late movement potential.
 
-### 1. Velocity & Spin Rate
-- 📈 What it shows: Yearly averages of pitch velocity and spin rate.
-- 🔍 Why it matters: Measures raw power and pitch movement effectiveness.
+**2. Pitch Usage Breakdown**  
+**What it shows:** Annual percentages of each pitch type (SL, SI, FC, etc.).  
+**Why it matters:** Reflects strategic evolution, role changes, and adaptation.
 
-### 2. Pitch Usage Percentages
-- 📊 What it shows: How often each pitch type is thrown each year (FC, FF, SI, SL).
-- 🧠 Why it matters: Reflects pitch selection strategies and player evolution.
+**3. Release Extension**  
+**What it shows:** Distance off the mound where pitches are released.  
+**Why it matters:** Influences hitter reaction time and perceived velocity.
 
-### 3. Release Extension
-- 🦵 What it shows: How far in front of the rubber the ball is released.
-- ⏱ Why it matters: Impacts perceived velocity and deception.
-
-### 4. Whiff Rate
-- 💨 What it shows: Swing-and-miss rate.
-- 🔑 Why it matters: Reflects dominance and ability to miss bats.
+**4. Whiff Rate**  
+**What it shows:** Swing-and-miss ratio by year.  
+**Why it matters:** Indicates strikeout power and deception.
 
 ---
 
-## 📄 Project Overview
+## 🎯 S.M.A.R.T. Framework
 
-This dashboard was created to answer the following question:
-
-> *How can we make advanced metrics more accessible for analysts, coaches, and fans—without losing depth or meaning?*
-
-**S.M.A.R.T. Project Framework**  
-- **Specific**: Analyze Doval’s 5-year performance using Statcast data.  
-- **Measurable**: 4 metrics with year-over-year trend lines.  
-- **Achievable**: Python + PyBaseball + Streamlit Cloud.  
-- **Relevant**: Metrics align with real-world player development goals.  
-- **Time-bound**: Completed over 3 focused days from prototype to deployment.
+- **Specific**: Analyze Doval’s trends from 2020–2025  
+- **Measurable**: Four core metrics across 5 years  
+- **Achievable**: Python, PyBaseball, Pandas, Streamlit  
+- **Relevant**: Matches player dev and scouting goals  
+- **Time-bound**: Completed in one week as an MVP
 
 ---
 
-## 📈 Technical Stack
-- **Data**: Statcast via PyBaseball, FanGraphs (CSV)
-- **Processing**: Python (Pandas, Matplotlib)
-- **Frontend**: Streamlit
-- **Hosting**: Streamlit Community Cloud (Free)
+## ⚙️ Technical Stack
 
-📎 **Live App**: [https://nextlevelnine-mlbanalyticsdashboard-camilo-doval.streamlit.app/](https://nextlevelnine-mlbanalyticsdashboard-camilo-doval.streamlit.app/)
-
----
-
-## 🎓 Certifications & Courses
-
-I’ve completed four elite baseball certifications in the past year:
-
-- 🧠 **Baseball GM & Scouting** – SMWW, Dec. 2024  
-- 🧠 **Baseball Player Development** – SMWW, March 2025  
-- 📊 **Baseball Analytics** – SMWW, March 2025  
-- 🔍 **Analytics & Critical Thinking in Baseball (Level I)** – SABR, April 2025
-
-Currently enrolled in:
-- 🔬 **Advanced Analytics in Baseball (Level II)** – SABR, May 2025  
-- 🐍 **Python Programming** – Stanford University Continuing Education, Spring 2025  
-- ⚾ **Baseball Agent Certification** – SMWW, June 2025  
+- **Data Sources**: Statcast (via PyBaseball), FanGraphs (CSV)
+- **Languages/Libraries**: Python, pandas, matplotlib, pybaseball
+- **App Framework**: Streamlit
+- **Hosting**: Streamlit Community Cloud (Free Tier)
+- **Repo**: [GitHub – NextLevelNine](https://github.com/NextLevelNine/MLB_Analytics_Dashboard)
 
 ---
 
-## 🔮 Future Enhancements
+## 🌱 Version 1: MVP Scope
+
+✅ Pull, clean, and analyze 5 years of Statcast data  
+✅ Visualize 4 performance metrics  
+✅ Fully interactive, branded Streamlit dashboard  
+✅ Lightweight, clean, and scalable
+
+---
+
+## 🔮 Version 2: Future Enhancements
+
+- Advanced stats: WAR, FIP, xFIP, WPA, K/9
 - Pitcher-to-pitcher comparisons
-- Team-level analysis and filters
-- Mobile view optimization
-- WAR, FIP, K/9, xFIP, WPA metrics integration
-- Interactive timeline and dropdown filters
+- Strike zone visualizations
+- Export PDF/CSV features for coaching staff
+- Mobile optimization
+
+---
+
+## 👩🏻 About the Creator
+
+Hi, I’m **Liza Osterdock**—a bilingual (English/Spanish), purpose-driven professional pivoting into MLB after 20+ years in tech, data, and program leadership. I specialize in bridging performance analytics and athlete development through high-performance culture and strategic thinking.
+
+I’m deeply passionate about creating development-first environments rooted in resilience, preparation, and emotional intelligence.
+
+---
+
+## 🎓 Certifications
+
+- Baseball GM & Scouting – SMWW, Dec. 2024  
+- Baseball Player Development – SMWW, Mar. 2025  
+- Baseball Analytics – SMWW, Mar. 2025  
+- Analytics & Critical Thinking in Baseball (Level I) – SABR, Apr. 2025
+
+📚 **Currently Enrolled** (Expected by July 2025):  
+- Advanced Analytics in Baseball (Level II) – SABR  
+- Python Programming – Stanford Continuing Education  
+- Baseball Agent Certification – SMWW  
 
 ---
 
 ## 📬 Contact
 
-🔗 [Connect with me on LinkedIn](https://www.linkedin.com/in/lizaosterdock/)  
-📧 Email: liza@allysixconsulting.com
+- LinkedIn: [linkedin.com/in/lizaosterdock](https://www.linkedin.com/in/lizaosterdock/)  
+- Email: liza@allysixconsulting.com  
+- Website: [nextlevelnine.com](https://nextlevelnine.com) *(Coming Soon)*
+
+---
