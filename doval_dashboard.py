@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 import os
+import base64
 
 # Import header and HTML content sections
 from doval_intro import (
@@ -16,6 +17,14 @@ from doval_intro import (
     section_about_creator,
     section_certifications_contact,
 )
+
+# Load and encode logo for footer
+def load_logo(file_path):
+    with open(file_path, "rb") as f:
+        return base64.b64encode(f.read()).decode()
+
+# Make sure the image is in the same directory or update path if needed
+base64_logo = load_logo("Pink Baseball.jpeg")
 
 # Set Streamlit page configuration
 st.set_page_config(page_title='📊 MLB Pitching Dashboard', page_icon='⚾', layout='wide')
@@ -44,7 +53,7 @@ st.markdown('* **Spin Rate (RPM)**: How many times the ball spins per minute. Hi
 velocity_spin = df.groupby('year')[['release_speed', 'release_spin_rate']].mean().round(2)
 st.dataframe(velocity_spin)
 
-fig1, ax1 = plt.subplots()
+fig1, ax1 = plt.subplots(figsize=(5, 3))
 velocity_spin.plot(marker='o', ax=ax1)
 plt.title('Velocity & Spin Rate by Year')
 plt.xlabel('Year')
@@ -63,7 +72,7 @@ pitch_counts = df.groupby(['year', 'pitch_type']).size().unstack(fill_value=0)
 pitch_percent = pitch_counts.div(pitch_counts.sum(axis=1), axis=0).round(3) * 100
 st.dataframe(pitch_percent)
 
-fig2, ax2 = plt.subplots()
+fig2, ax2 = plt.subplots(figsize=(5, 3))
 pitch_percent.plot(kind='bar', stacked=True, ax=ax2)
 plt.title('Pitch Usage Percentages by Year')
 plt.ylabel('Percentage (%)')
@@ -81,7 +90,7 @@ st.markdown('* Measures how far off the mound the ball is released. Greater exte
 extension_summary = df.groupby('year')['release_extension'].mean().round(2)
 st.dataframe(extension_summary)
 
-fig3, ax3 = plt.subplots()
+fig3, ax3 = plt.subplots(figsize=(5, 3))
 extension_summary.plot(marker='o', color='green', ax=ax3)
 plt.title('Release Extension by Year')
 plt.ylabel('Feet')
@@ -104,7 +113,7 @@ swing_data = df[df['swinging']]
 whiff_rate = swing_data.groupby('year')['whiff'].mean().round(3)
 st.dataframe(whiff_rate)
 
-fig4, ax4 = plt.subplots()
+fig4, ax4 = plt.subplots(figsize=(5, 3))
 whiff_rate.plot(marker='o', color='red', ax=ax4)
 plt.title('Whiff Rate by Year')
 plt.ylabel('Whiff Rate')
@@ -139,6 +148,14 @@ st.markdown(section_about_creator, unsafe_allow_html=True)
 # SECTION: Certifications & Contact Info
 st.markdown(section_certifications_contact, unsafe_allow_html=True)
 
-# Final Divider & Footer
+# Divider
 st.markdown('---')
-st.markdown('**Created by Liza Osterdock**')
+
+# Footer
+st.markdown('<center>Designed by Liza Osterdock.</center>', unsafe_allow_html=True)
+st.markdown('<br>', unsafe_allow_html=True)
+st.markdown('<center>© 2025 Next Level Nine. All rights reserved.</center>', unsafe_allow_html=True)
+
+if base64_logo:
+    image_html = f"<div style='text-align: center;'><img src='data:image/png;base64,{base64_logo}' width='200'/></div>"
+    st.markdown(image_html, unsafe_allow_html=True)
