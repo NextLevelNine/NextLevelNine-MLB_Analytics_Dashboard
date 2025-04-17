@@ -1,6 +1,3 @@
-# This program defines the project summary and introduction for the Streamlit dashboard
-
-# Header section (visual title)
 project_intro = """
 <div style='text-align: center;'>
     <h3 style='margin-top: 0;'>MLB Pitching Analysis Dashboard</h3>
@@ -9,7 +6,6 @@ project_intro = """
 
     <p style='font-style: italic; margin-bottom: 0;'>Scouting & Player Development Insights Through a Woman’s Lens</p>
 </div>
-
 """
 
 # Main body content of the page
