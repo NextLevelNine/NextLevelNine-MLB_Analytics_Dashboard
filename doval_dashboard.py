@@ -4,19 +4,28 @@ import matplotlib.pyplot as plt
 import os
 import base64
 
-# This program imports the full html code for the project introduction used for the dashboard header
-from doval_intro import project_intro
+# This program imports the header and main content from the doval_intro file
+from doval_intro import project_intro, main_content
 
 # This program sets the Streamlit page title
-st.set_page_config(page_title='MLB Pitching Dashboard', page_icon='⚾', layout='wide')
+st.set_page_config(page_title='📊 MLB Pitching Dashboard', page_icon='⚾', layout='wide')
+
+# This program displays the dashboard visual title and subheading
+st.markdown(project_intro, unsafe_allow_html=True)
+
+# This program displays the full dashboard summary and project details
+st.markdown(main_content, unsafe_allow_html=True)
+
+
+# This program sets the Streamlit page title
+#st.set_page_config(page_title='MLB Pitching Dashboard', page_icon='⚾', layout='wide')
 
 # This program sets the main title of the dashboard
-st.markdown(project_intro, unsafe_allow_html=True)
+#st.markdown(project_intro, unsafe_allow_html=True)
 #st.title('📊 MLB Pitching Dashboard')
 
 # This program displays the project overview and summary
-st.markdown(project_intro, unsafe_allow_html=True)
-
+#st.markdown(project_intro, unsafe_allow_html=True)
 
 # This program displays the author's name
 st.markdown('**Created by Liza Osterdock**')
