@@ -11,7 +11,8 @@ from doval_intro import project_intro
 st.set_page_config(page_title='MLB Pitching Dashboard', page_icon='⚾', layout='wide')
 
 # This program sets the main title of the dashboard
-st.title('📊 MLB Pitching Dashboard')
+st.markdown(project_intro, unsafe_allow_html=True)
+#st.title('📊 MLB Pitching Dashboard')
 
 # This program displays the project overview and summary
 st.markdown(project_intro, unsafe_allow_html=True)
