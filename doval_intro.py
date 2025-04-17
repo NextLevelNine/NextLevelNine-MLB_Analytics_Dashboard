@@ -85,5 +85,5 @@ project_intro = """
 
 <h4>📨 Contact</h4>
 <p>🔗 <a href="https://www.linkedin.com/in/lizaosterdock/" target="_blank">Connect with me on LinkedIn</a><br>
-📧 Email: [Coming soon]</p>
+📧 Email: liza@allysixconsulting.com</p>
 """
