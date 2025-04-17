@@ -1,11 +1,13 @@
 # This program defines the project summary and introduction for the Streamlit dashboard
-
 project_intro = """
-<h3>MLB Pitching Analysis Dashboard</h3>
-<h4>Scouting & Player Development Insights Through a Woman’s Lens</h4>
+<div style='text-align: center;'>
+    <p style='font-style: italic; margin-bottom: 0;'>MLB Pitching Analysis Dashboard</p>
+    <h3 style='margin-top: 0;'>Scouting & Player Development Insights Through a Woman’s Lens</h3>
+</div>
+"""
 
 <h4>PROJECT PURPOSE</h4>
-<p>As a bilingual, purpose-driven professional transitioning into Major League Baseball, I built this dashboard to merge scouting instincts with modern analytics—through the lens of leadership, player development, and human performance. This project reflects my unique ability to translate data into meaningful, player-focused insight, shaped by over 20 years in business strategy, technology, and mental performance.</p>
+<p>As a bilingual, purpose-driven professional aspiring to transition into a Major League Baseball position, I built this dashboard to merge scouting instincts with modern analytics—through the lens of leadership, player development, and human performance. This project reflects my unique ability to translate data into meaningful, player-focused insight, shaped by over 20 years in business strategy, technology, and mental performance.</p>
 <p>My goal was to design a tool that not only visualizes performance metrics, but also mirrors the decision-making needs of today’s MLB front offices. With a strong foundation in baseball analytics, scouting, and player development, this project demonstrates my ability to communicate insights clearly, build scalable systems, and align data storytelling with long-term athlete growth.</p>
 <p>This dashboard is more than a coding exercise—it’s a practical demonstration of how I think, analyze, and lead through baseball intelligence. My work blends emotional intelligence, analytical rigor, and high-performance leadership, offering a versatile perspective to teams seeking resilient, player-centric environments.</p>
 
