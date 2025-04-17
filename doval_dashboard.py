@@ -1,4 +1,3 @@
-# This program imports all required libraries for building the Streamlit dashboard
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -14,14 +13,15 @@ st.set_page_config(page_title='Camilo Doval Pitching Dashboard', page_icon='⚾'
 # This program sets the main title of the dashboard
 st.title('📊 Camilo Doval - Pitching Dashboard')
 
-# This program displays the project overview and summary section from doval_intro.py
-st.markdown(project_intro, unsafe_allow_html=True)
+# This program displays the project overview and summary inside an expandable section
+with st.expander("📖 Click to read full Project Overview", expanded=True):
+    st.markdown(project_intro, unsafe_allow_html=True)
 
-# This program adds author credit and section divider
+# This program displays the author's name
 st.markdown('**Created by Liza Osterdock**')
 st.markdown('---')
 
-# This program loads the Statcast dataset and extracts the year from the date
+# This program loads the Statcast dataset and prepares the data
 file_path = 'camilo_doval_5yr_statcast.csv'
 df = pd.read_csv(file_path)
 df['game_date'] = pd.to_datetime(df['game_date'], errors='coerce')
@@ -54,6 +54,7 @@ st.markdown('  - **SL**: Slider')
 
 pitch_counts = df.groupby(['year', 'pitch_type']).size().unstack(fill_value=0)
 pitch_percent = pitch_counts.div(pitch_counts.sum(axis=1), axis=0).round(3) * 100
+
 st.dataframe(pitch_percent)
 
 fig2, ax2 = plt.subplots()
@@ -90,6 +91,7 @@ st.markdown('* High whiff rates indicate dominant “stuff” that hitters strug
 df['description'] = df['description'].fillna('')
 df['swinging'] = df['description'].str.contains('swing', case=False)
 df['whiff'] = df['description'] == 'swinging_strike'
+
 swing_data = df[df['swinging']]
 whiff_rate = swing_data.groupby('year')['whiff'].mean().round(3)
 st.dataframe(whiff_rate)
@@ -102,14 +104,14 @@ plt.xlabel('Year')
 plt.grid(True)
 st.pyplot(fig4)
 
-# This program imports and encodes the logo image for display in the footer
+# This program imports and encodes the logo image for display
 logo_path = 'Next Level Nine Logo.png'
 base64_logo = ''
 if os.path.exists(logo_path):
     with open(logo_path, 'rb') as f:
         base64_logo = base64.b64encode(f.read()).decode()
 
-# This program creates the branded footer with logo and copyright
+# This program creates the footer with branding and logo
 st.markdown('---')
 st.markdown('<center>Designed by Liza Osterdock.</center>', unsafe_allow_html=True)
 st.markdown('<br>', unsafe_allow_html=True)
