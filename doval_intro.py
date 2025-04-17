@@ -4,7 +4,6 @@ project_intro = """
     <p style='font-style: italic; margin-bottom: 0;'>MLB Pitching Analysis Dashboard</p>
     <h3 style='margin-top: 0;'>Scouting & Player Development Insights Through a Woman’s Lens</h3>
 </div>
-"""
 
 <h4>PROJECT PURPOSE</h4>
 <p>As a bilingual, purpose-driven professional aspiring to transition into a Major League Baseball position, I built this dashboard to merge scouting instincts with modern analytics—through the lens of leadership, player development, and human performance. This project reflects my unique ability to translate data into meaningful, player-focused insight, shaped by over 20 years in business strategy, technology, and mental performance.</p>
