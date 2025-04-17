@@ -107,5 +107,8 @@ project_intro = """
   <li><b>LinkedIn:</b> <a href="https://www.linkedin.com/in/lizaosterdock/" target="_blank">linkedin.com/in/lizaosterdock</a></li>
   <li><b>Email:</b> liza@allysixconsulting.com</li>
 </ul>
+<p><b>Website:</b> <a href="https://nextlevelnine.com" target="_blank">nextlevelnine.com</a> <i>(Coming Soon)</i></p>
+  
+</ul>
 """
 
