@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import os
 import base64
 
-# This program imports the project introduction text used for the dashboard header
+# This program imports the full html code for the project introduction used for the dashboard header
 from doval_intro import project_intro
 
 # This program sets the Streamlit page title
@@ -13,9 +13,9 @@ st.set_page_config(page_title='Camilo Doval Pitching Dashboard', page_icon='⚾'
 # This program sets the main title of the dashboard
 st.title('📊 Camilo Doval - Pitching Dashboard')
 
-# This program displays the project overview and summary inside an expandable section
-with st.expander("📖 Click to read full Project Overview", expanded=True):
-    st.markdown(project_intro, unsafe_allow_html=True)
+# This program displays the project overview and summary
+st.markdown(project_intro, unsafe_allow_html=True)
+
 
 # This program displays the author's name
 st.markdown('**Created by Liza Osterdock**')
@@ -116,6 +116,7 @@ st.markdown('---')
 st.markdown('<center>Designed by Liza Osterdock.</center>', unsafe_allow_html=True)
 st.markdown('<br>', unsafe_allow_html=True)
 st.markdown('<center>© 2025 Next Level Nine. All rights reserved.</center>', unsafe_allow_html=True)
+
 
 if base64_logo:
     image_html = f"<div style='text-align: center;'><img src='data:image/png;base64,{base64_logo}' width='200'/></div>"
