@@ -107,5 +107,30 @@ st.pyplot(fig4)
 # Divider
 st.markdown('---')
 
-# Footer
-st.markdown(footer_content, unsafe_allow_html=True)
+# SECTION: Dashboard Insight Summary
+st.markdown(section_dashboard_insights, unsafe_allow_html=True)
+
+# SECTION: SMART Framework
+st.markdown(section_smart_framework, unsafe_allow_html=True)
+
+# SECTION: Development Process
+st.markdown(section_dev_process, unsafe_allow_html=True)
+
+# SECTION: Tech Stack
+st.markdown(section_tech_stack, unsafe_allow_html=True)
+
+# SECTION: MVP Scope
+st.markdown(section_mvp_scope, unsafe_allow_html=True)
+
+# SECTION: Future Enhancements
+st.markdown(section_future_enhancements, unsafe_allow_html=True)
+
+# SECTION: About the Creator
+st.markdown(section_about_creator, unsafe_allow_html=True)
+
+# SECTION: Certifications & Contact Info
+st.markdown(section_certifications_contact, unsafe_allow_html=True)
+
+# Final Divider & Footer
+st.markdown('---')
+st.markdown('**Created by Liza Osterdock**')
