@@ -1,11 +1,13 @@
+# This program defines the project summary and introduction for the Streamlit dashboard
+
 project_intro = """
 <div style='text-align: center;'>
     <h3 style='margin-top: 0;'>MLB Pitching Analysis Dashboard</h3>
+    <img src='https://raw.githubusercontent.com/NextLevelNine/NextLevelNine-MLB_Analytics_Dashboard/main/Pink%20Baseball.jpeg' alt='Pink Baseball' width='450' style='margin: 10px 0;'/>
     <p style='font-style: italic; margin-bottom: 0;'>Scouting & Player Development Insights Through a Woman’s Lens</p>
 </div>
 """
 
-# Main body content of the page
 main_content = """
 <h4>Project Purpose</h4>
 <p>As a bilingual, purpose-driven professional aspiring to transition into a Major League Baseball position, I built this dashboard to merge scouting instincts with modern analytics—through the lens of leadership, player development, and human performance. This project reflects my unique ability to translate data into meaningful, player-focused insight, shaped by over 20 years in business strategy, technology, and mental performance.</p>
@@ -16,23 +18,6 @@ main_content = """
 <p>I created this dashboard using Python to evaluate the past five seasons of an MLB pitcher’s performance. For this case study, I selected San Francisco Giants reliever Camilo Doval and pulled Statcast data covering 2020–2025.</p>
 <p>Before scripting, I reviewed Doval’s pitch arsenal, usage trends, and public scouting reports to ensure alignment between raw data and real-world insights. I then used tools like pybaseball, pandas, and matplotlib to extract, clean, and visualize performance patterns.</p>
 <p>The final result is a public-facing, interactive dashboard hosted via Streamlit Cloud—designed to help scouts, analysts, and player development staff interpret pitching trends clearly and efficiently.</p>
-
-<h4>Development Process</h4>
-<ul>
-  <li><b>pull_doval_data.py</b>: Used pybaseball to retrieve Statcast pitch-level data (2020–2025). Output: <code>camilo_doval_5yr_statcast.csv</code>.</li>
-  <li><b>doval_pitching_analysis.py</b>: Calculated four core metrics:
-    <ul>
-      <li>Avg. velocity & spin rate by year</li>
-      <li>Pitch usage breakdown</li>
-      <li>Avg. release extension</li>
-      <li>Whiff rate (swing-and-miss ratio)</li>
-    </ul>
-    Saved each to its own CSV file.
-  </li>
-  <li><b>doval_charts.py</b>: Created clean PNG visualizations using matplotlib.</li>
-  <li><b>pull_doval_advanced.py</b>: Generated placeholder advanced metrics file: <code>doval_advanced_stats.csv</code>.</li>
-  <li><b>merge_doval_data.py</b>: Merged advanced and Statcast summaries into: <code>doval_complete_profile.csv</code>.</li>
-</ul>
 
 <h4>What the Dashboard Displays</h4>
 <ol>
@@ -60,6 +45,23 @@ main_content = """
   <li><b>Achievable:</b> Built with Python, PyBaseball, Pandas, Matplotlib, and Streamlit</li>
   <li><b>Relevant:</b> Key pitching metrics drive modern player development decisions</li>
   <li><b>Time-bound:</b> Completed within one week as a capstone MVP</li>
+</ul>
+
+<h4>Development Process</h4>
+<ul>
+  <li><b>pull_doval_data.py</b>: Used pybaseball to retrieve Statcast pitch-level data (2020–2025). Output: <code>camilo_doval_5yr_statcast.csv</code>.</li>
+  <li><b>doval_pitching_analysis.py</b>: Calculated four core metrics:
+    <ul>
+      <li>Avg. velocity & spin rate by year</li>
+      <li>Pitch usage breakdown</li>
+      <li>Avg. release extension</li>
+      <li>Whiff rate (swing-and-miss ratio)</li>
+    </ul>
+    Saved each to its own CSV file.
+  </li>
+  <li><b>doval_charts.py</b>: Created clean PNG visualizations using matplotlib.</li>
+  <li><b>pull_doval_advanced.py</b>: Generated placeholder advanced metrics file: <code>doval_advanced_stats.csv</code>.</li>
+  <li><b>merge_doval_data.py</b>: Merged advanced and Statcast summaries into: <code>doval_complete_profile.csv</code>.</li>
 </ul>
 
 <h4>Technical Stack</h4>
