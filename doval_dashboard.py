@@ -10,13 +10,13 @@ from doval_intro import project_intro, main_content
 # Set Streamlit page configuration
 st.set_page_config(page_title='📊 MLB Pitching Dashboard', page_icon='⚾', layout='wide')
 
-# Show visual header and image
+# Display visual title and intro image
 st.markdown(project_intro, unsafe_allow_html=True)
 
 # Divider
 st.markdown('---')
 
-# SECTION: Project Purpose and Overview (comes before charts)
+# SECTION: Project Purpose and Overview
 st.markdown(main_content, unsafe_allow_html=True)
 
 # Divider
@@ -28,9 +28,7 @@ df = pd.read_csv(file_path)
 df['game_date'] = pd.to_datetime(df['game_date'], errors='coerce')
 df['year'] = df['game_date'].dt.year
 
-# -----------------------------
 # SECTION: Velocity & Spin Rate
-# -----------------------------
 st.header('Velocity & Spin Rate by Year')
 st.markdown('* **Release Speed (MPH)**: The speed at which the ball leaves the pitcher’s hand.')
 st.markdown('* **Spin Rate (RPM)**: How many times the ball spins per minute. Higher values often lead to more movement.')
@@ -46,9 +44,7 @@ plt.ylabel('Average')
 plt.grid(True)
 st.pyplot(fig1)
 
-# -----------------------------
 # SECTION: Pitch Usage Percentages
-# -----------------------------
 st.header('Pitch Usage Percentages by Year')
 st.markdown('* Shows the percentage mix of pitches used each year.')
 st.markdown('Pitch Types: SL (Slider), FC (Cutter), FF (4-Seamer), SI (Sinker)')
@@ -66,9 +62,7 @@ plt.legend(title='Pitch Type', bbox_to_anchor=(1.05, 1), loc='upper left')
 plt.tight_layout()
 st.pyplot(fig2)
 
-# -----------------------------
 # SECTION: Release Extension
-# -----------------------------
 st.header('Average Release Extension by Year')
 st.markdown('* Measures how far off the mound the ball is released. Greater extension can reduce perceived reaction time for hitters.')
 
@@ -83,9 +77,7 @@ plt.xlabel('Year')
 plt.grid(True)
 st.pyplot(fig3)
 
-# -----------------------------
 # SECTION: Whiff Rate
-# -----------------------------
 st.header('Whiff Rate by Year')
 st.markdown('* A **whiff** is a swing-and-miss.')
 st.markdown('* **Whiff Rate = Swinging Strikes ÷ Total Swings**')
@@ -106,6 +98,12 @@ plt.xlabel('Year')
 plt.grid(True)
 st.pyplot(fig4)
 
-# Divider and Footer
+# Divider before closing content
+st.markdown('---')
+
+# SECTION: Remaining HTML sections (SMART, Technical Stack, Versions, Bio, etc.)
+st.markdown(main_content, unsafe_allow_html=True)
+
+# Footer
 st.markdown('---')
 st.markdown('**Created by Liza Osterdock**')
